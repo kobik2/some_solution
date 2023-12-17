@@ -1,0 +1,15 @@
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    ens18:
+      dhcp4: false
+  bonds:
+    bond0:
+      interfaces: [ens18]
+      addresses: [192.168.2.2/22]
+      routes:
+        - to: 0.0.0.0/0
+          via: 192.168.2.1
+      parameters:
+        mode: 802.3ad
+  version: 2

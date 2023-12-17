@@ -1,0 +1,10 @@
+---
+- hosts: remote
+  become: true
+
+  tasks:
+    - name: Change user1 password
+      ansible.builtin.user:
+        name: user1
+        update_password: always
+        password: 1resu

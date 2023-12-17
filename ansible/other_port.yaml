@@ -1,0 +1,17 @@
+---
+- hosts: port
+  become: true
+
+  tasks:
+    - name: Change default port from 22 to 2022
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: 'Port 22'
+        line: 'port 2022'
+      notify: Restart SSH
+
+  handlers:
+    - name: Restart SSH
+      service:
+        name: ssh
+        state: restarted

@@ -1,0 +1,12 @@
+---
+- hosts: remote
+  become: true
+
+  tasks:
+    - name: Create user - user2
+      ansible.builtin.user:
+        name: user2
+        password: 2resu 
+        uid: 5000
+        home: /tmp/user2
+        state: present
